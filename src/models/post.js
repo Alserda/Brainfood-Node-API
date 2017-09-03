@@ -1,16 +1,4 @@
-// 'use strict';
-// module.exports = function(sequelize, DataTypes) {
-//   var Post = sequelize.define('Post', {
-//     title: DataTypes.STRING
-//   }, {
-//     classMethods: {
-//       associate: function(models) {
-//         // associations can be defined here
-//       }
-//     }
-//   });
-//   return Post;
-// };
+import customDataTypes from '../utils/sequelize-mysql-timestamp';
 
 export default (sequelize, DataTypes) => sequelize.define('Post', {
   id: {
@@ -20,6 +8,6 @@ export default (sequelize, DataTypes) => sequelize.define('Post', {
   },
   title: DataTypes.STRING,
   body: DataTypes.TEXT,
-  createdAt: DataTypes.DATE,
-  updatedAt: DataTypes.DATE,
+  createdAt: customDataTypes.TIMESTAMP,
+  updatedAt: customDataTypes.TIMESTAMP,
 });

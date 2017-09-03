@@ -1,7 +1,6 @@
 import { Router } from 'express';
 import models from '../models';
 
-
 const { Post } = models;
 const router = new Router();
 
