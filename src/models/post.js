@@ -16,7 +16,10 @@ export default (sequelize, DataTypes) => sequelize.define('Post', {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
+    autoIncrement: true,
   },
   title: DataTypes.STRING,
   body: DataTypes.TEXT,
+  createdAt: DataTypes.DATE,
+  updatedAt: DataTypes.DATE,
 });

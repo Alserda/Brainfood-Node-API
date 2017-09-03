@@ -1,12 +1,15 @@
 import express from 'express';
+import bodyParser from 'body-parser';
 // import Sequelize from 'sequelize';
 import routes from './routes';
 
 const app = express();
-// const sequelize = new Sequelize('brainfood', 'root', 'root', {
-//   host: 'localhost',
-//   dialect: 'mysql',
-// });
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: true, limit: '5mb' }));
+
+// parse application/json
+app.use(bodyParser.json());
 
 // sequelize
 //   .authenticate()

@@ -1,14 +1,21 @@
 import { Router } from 'express';
-import { Post } from '../models';
+import models from '../models';
 
-// const { Post } = db;
-console.log('abc: ', Post);
-// console.log('post: ', db);
+
+const { Post } = models;
 const router = new Router();
 
-router.get('/', (req, res) => {
-  console.log('posts index');
-  res.json({ msg: 'posts index' });
+router.get('/', async (req, res) => {
+  const posts = await Post.findAll();
+
+  res.status(200).json(posts);
+});
+
+
+router.post('/', async (req, res) => {
+  const post = await Post.create(req.body);
+
+  res.status(200).json(post);
 });
 
 export default router;
