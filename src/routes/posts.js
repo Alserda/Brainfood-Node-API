@@ -17,4 +17,10 @@ router.post('/', async (req, res) => {
   res.status(200).json(post);
 });
 
+router.get('/:id', async (req, res) => {
+  const post = await Post.find({ where: { id: req.params.id } });
+
+  res.status(200).json(post);
+});
+
 export default router;

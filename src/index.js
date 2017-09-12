@@ -1,7 +1,10 @@
-import express from 'express';
+import cors from 'cors';
 import bodyParser from 'body-parser';
+import express from 'express';
+
 // import Sequelize from 'sequelize';
 import routes from './routes';
+
 
 const app = express();
 
@@ -11,20 +14,10 @@ app.use(bodyParser.urlencoded({ extended: true, limit: '5mb' }));
 // parse application/json
 app.use(bodyParser.json());
 
-// sequelize
-//   .authenticate()
-//   .then(() => {
-//     console.log('Database connected')
-//   })
-//   .catch(err => {
-//     console.log('Database connection failed: ', err)
-//   });
+// enable cors
+app.use(cors());
 
-// app.get('/posts', (req, res) => {
-//   res.send('Ja');
-// });
-
-
+// add all routes
 app.use('/', routes);
 
 app.listen(3001, () => console.log('Listening on port 3001'));
