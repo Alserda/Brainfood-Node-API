@@ -7,7 +7,9 @@ const router = new Router();
 router.get('/', async (req, res) => {
   const posts = await Post.findAll();
 
-  res.status(200).json(posts);
+  setTimeout(() => {
+    res.status(200).json(posts);
+  }, 2000);
 });
 
 
